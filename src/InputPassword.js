@@ -3,19 +3,23 @@ import BottomLineInput from "./BottomLineInput";
 import {UserFormContext} from "./UserFormContext";
 
 function InputPassword() {
-    const {userForm, setUserForm} = useContext(UserFormContext);
+    const {userForm, dispatch} = useContext(UserFormContext);
 
-    const handleSetValue = (val) => {
-        let userFormCopied = JSON.parse(JSON.stringify(userForm));
-        userFormCopied.password = val;
-        setUserForm(userFormCopied);
+    const handlePasswordChange = (val) => {
+        // let userFormCopied = JSON.parse(JSON.stringify(userForm));
+        // userFormCopied.password = val;
+        // setUserForm(userFormCopied);
+        dispatch({
+            type: 'password',
+            payload: val
+        })
     }
 
     return (
         <>
             <label>
                 Password:
-                <BottomLineInput value={userForm.password} setValue={handleSetValue}/>
+                <BottomLineInput value={userForm.password} setValue={handlePasswordChange}/>
             </label>
             <br/>
         </>
