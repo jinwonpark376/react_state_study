@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import InputName from "./InputName";
+import InputPhoneNumber from "./InputPhoneNumber";
+import InputAge from "./InputAge";
+import {UserFormContext} from "./UserFormContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userForm, setUserForm] = useState({
+        name: "",
+        phoneNumber: "",
+        age: 0
+    });
+
+    const value = {userForm, setUserForm};
+
+    return (
+        <div className="App">
+            <UserFormContext.Provider value={value}>
+                <form onSubmit={() => alert(`name: ${userForm.name}, phoneNumber: ${userForm.phoneNumber}, age: ${userForm.age}`)}>
+                    <InputName />
+                    <InputPhoneNumber />
+                    <InputAge />
+                    <input type="submit" value="Submit"/>
+                </form>
+            </UserFormContext.Provider>
+        </div>
+    );
 }
 
 export default App;
