@@ -1,25 +1,21 @@
 import React, {useState} from 'react';
-import InputName from "./InputName";
-import InputPhoneNumber from "./InputPhoneNumber";
-import InputAge from "./InputAge";
+import InputUsername from "./InputUsername";
+import InputPassword from "./InputPassword";
 import {UserFormContext} from "./UserFormContext";
 
 function App() {
-    const [userForm, setUserForm] = useState({
-        name: "",
-        phoneNumber: "",
-        age: 0
-    });
 
-    const value = {userForm, setUserForm};
+    const [userForm, setUserForm] = useState({
+        username: "",
+        password: ""
+    })
 
     return (
         <div className="App">
-            <UserFormContext.Provider value={value}>
-                <form onSubmit={() => alert(`name: ${userForm.name}, phoneNumber: ${userForm.phoneNumber}, age: ${userForm.age}`)}>
-                    <InputName />
-                    <InputPhoneNumber />
-                    <InputAge />
+            <UserFormContext.Provider value={{userForm, setUserForm}}>
+                <form onSubmit={() => alert(`username: ${userForm.username}, password: ${userForm.password}`)}>
+                    <InputUsername/>
+                    <InputPassword/>
                     <input type="submit" value="Submit"/>
                 </form>
             </UserFormContext.Provider>

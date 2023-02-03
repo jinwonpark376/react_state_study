@@ -2,24 +2,24 @@ import React, {useContext} from 'react';
 import BottomLineInput from "./BottomLineInput";
 import {UserFormContext} from "./UserFormContext";
 
-function InputName() {
+function InputPassword() {
     const {userForm, setUserForm} = useContext(UserFormContext);
 
     const handleSetValue = (val) => {
         let userFormCopied = JSON.parse(JSON.stringify(userForm));
-        userFormCopied.name = val;
+        userFormCopied.password = val;
         setUserForm(userFormCopied);
     }
 
     return (
         <>
             <label>
-                Name:
-                <BottomLineInput value={userForm.name} setValue={handleSetValue}/>
+                Password:
+                <BottomLineInput value={userForm.password} setValue={handleSetValue}/>
             </label>
             <br/>
         </>
     )
 }
 
-export default InputName;
+export default InputPassword;
