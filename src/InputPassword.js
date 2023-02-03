@@ -6,9 +6,6 @@ function InputPassword() {
     const {userForm, dispatch} = useContext(UserFormContext);
 
     const handlePasswordChange = (val) => {
-        // let userFormCopied = JSON.parse(JSON.stringify(userForm));
-        // userFormCopied.password = val;
-        // setUserForm(userFormCopied);
         dispatch({
             type: 'password',
             payload: val

@@ -1,16 +1,9 @@
-import React, {useState, useReducer} from 'react';
+import React, {useReducer} from 'react';
 import InputUsername from "./InputUsername";
 import InputPassword from "./InputPassword";
 import {UserFormContext, userFormInitialState, userFormReducer} from "./UserFormContext";
 
 function App() {
-    // 3. use reducer from your component
-    // const [userForm, setUserForm] = useState({
-    //     username: "",
-    //     password: ""
-    // })
-
-    // 2. create reducer function
     const [userForm, dispatch] = useReducer(userFormReducer, userFormInitialState);
 
     return (
